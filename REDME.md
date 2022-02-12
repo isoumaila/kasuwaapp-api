@@ -1,0 +1,3 @@
+--Initialisation
+--- npm init -y
+--- npm i -s express nodemon
