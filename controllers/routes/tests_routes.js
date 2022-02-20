@@ -5,8 +5,8 @@ const ObjectID = require('mongoose').Types.ObjectId;
 const { MessageModel } = require('../../models/messages/message');
 
 //Acceuil
-router.get("/messages", (req, res) => {
-    res.send("Bien sur API de l'application KasuaApp !");
+router.get("/status", (req, res) => {
+    res.send("Bien sur API de l'application KasuaApp ! \n L'accès aux api est actuellement disponible");
 });
 //Get all
 router.get('/messages', (req, res) => {
