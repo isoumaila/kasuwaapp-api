@@ -11,6 +11,8 @@ const bodyParser = require("body-parser");
 const app = express();
 //Middleware
 app.use(bodyParser.json());
+// use the express-static middleware
+app.use(express.static("public"));
 app.use('/postMessages', testRoute);
 
 
