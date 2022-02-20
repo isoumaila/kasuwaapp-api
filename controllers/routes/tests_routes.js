@@ -4,8 +4,12 @@ const ObjectID = require('mongoose').Types.ObjectId;
 
 const { MessageModel } = require('../../models/messages/message');
 
+//Acceuil
+router.get("/messages", (req, res) => {
+    res.send("Bien sur API de l'application KasuaApp !");
+});
 //Get all
-router.get('/', (req, res) => {
+router.get('/messages', (req, res) => {
     res.setHeader("Content-Type", "application/json");
     MessageModel.find((err, result) => {
         console.log(result);
@@ -17,7 +21,7 @@ router.get('/', (req, res) => {
 });
 
 //poste create one
-router.post('/', (req, res) => {
+router.post('/messages', (req, res) => {
     const newMessage = new MessageModel({
         auteur: req.body.auteur,
         message: req.body.message

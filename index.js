@@ -13,7 +13,7 @@ const app = express();
 app.use(bodyParser.json());
 // use the express-static middleware
 app.use(express.static("public"));
-app.use('/postMessages', testRoute);
+app.use('/k-api/v1', testRoute);
 
 
 //routes
