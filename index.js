@@ -3,6 +3,8 @@ const express = require("express");
 const dataBase = require('./models/configs/db');
 const testRoute = require('./controllers/routes/tests_routes');
 const bodyParser = require("body-parser");
+const swaggerUi = require("swagger-ui-express");
+//const swaggerDocument = require("./swagger.json");
 
 
 
@@ -13,7 +15,8 @@ const app = express();
 app.use(bodyParser.json());
 // use the express-static middleware
 app.use(express.static("public"));
-app.use('/k-api/v1', testRoute);
+app.use('/k-api/v1', testRoute, swaggerUi.serve);
+app.set("view engine", "ejs");
 
 
 //routes

@@ -73,4 +73,10 @@ router.delete("/:id", (req, res) => {
         }
     )
 });
+
+
+// define the first route
+router.get("/test", async function(req, res) {
+    return res.json("Tous les jours !");
+});
 module.exports = router;
