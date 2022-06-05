@@ -12,8 +12,11 @@
     "dependencies": {
         "body-parser": "^1.19.1",
         "express": "^4.17.2",
+        "express-jsdoc-swagger": "^1.6.8",
+        "lowdb": "^3.0.0",
         "mongoose": "^6.2.1",
         "nodemon": "^2.0.15",
+        "swagger-jsdoc": "^6.2.1",
         "swagger-ui-express": "^4.3.0"
     },
     "engines": {

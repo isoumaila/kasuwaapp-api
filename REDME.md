@@ -18,4 +18,4 @@
 -- git status
 -- git add .
 -- git commit -m "message"
--- git push
+-- git push ou git push origin main
