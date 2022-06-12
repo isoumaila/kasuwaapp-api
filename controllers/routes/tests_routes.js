@@ -168,4 +168,9 @@ router.delete("/:id", (req, res) => {
 router.get("/test", async function(req, res) {
     return res.json("Tous les jours !");
 });
+
+
+
+
+//export
 module.exports = router;

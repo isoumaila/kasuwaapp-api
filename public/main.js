@@ -1,5 +1,5 @@
 function run() {
-    fetch("/test")
+    fetch("/")
         .then((response) => response.json())
         .then((data) => {
             const detailsElement = document.getElementById("movie");

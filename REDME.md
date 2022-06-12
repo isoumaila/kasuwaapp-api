@@ -19,3 +19,7 @@
 -- git add .
 -- git commit -m "message"
 -- git push ou git push origin main
+
+## heroku
+
+--- git push heroku main

@@ -1,23 +1,133 @@
 <!DOCTYPE html>
-
-<head>
-    <link href="https://fonts.googleapis.com/css?family=Barlow|Source+Sans+Pro&display=swap" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="styles.css">
-</head>
 <html>
 
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            margin: 0;
+        }
+        
+        html {
+            box-sizing: border-box;
+        }
+        
+        *,
+        *:before,
+        *:after {
+            box-sizing: inherit;
+        }
+        
+        .column {
+            float: left;
+            width: 33.3%;
+            margin-bottom: 16px;
+            padding: 0 8px;
+        }
+        
+        .card {
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+            margin: 8px;
+        }
+        
+        .about-section {
+            padding: 50px;
+            text-align: center;
+            background-color: #474e5d;
+            color: white;
+        }
+        
+        .container {
+            padding: 0 16px;
+        }
+        
+        .container::after,
+        .row::after {
+            content: "";
+            clear: both;
+            display: table;
+        }
+        
+        .title {
+            color: grey;
+        }
+        
+        .button {
+            border: none;
+            outline: 0;
+            display: inline-block;
+            padding: 8px;
+            color: white;
+            background-color: #000;
+            text-align: center;
+            cursor: pointer;
+            width: 100%;
+        }
+        
+        .button:hover {
+            background-color: #555;
+        }
+        
+        @media screen and (max-width: 650px) {
+            .column {
+                width: 100%;
+                display: block;
+            }
+        }
+    </style>
+</head>
+
 <body>
-    <h1>🎥 Welcome to Kasuwa app api</h1>
-    <p>L'api qui gère les données stockées dans une base Mongodb</p>
-    <button id="laugh" onclick="run()">😂 Le succes au bout de l'effort</button>
-    <div id="movie" style="visibility: hidden;">
-        <img src="" alt="movie poster">
-        <div>
-            <h1></h1>
-            <p></p>
+
+    <div class="about-section">
+        <h1>APPROPOS DE KASUAWA APP API</h1>
+        <p>Nous avions un rêve ! aider nos commerçants à vendre plus que prevu !</p>
+        <p>Ainsi, l'avenir nous dira, jusqu'ôu nous irons !</p>
+    </div>
+
+    <h2 style="text-align:center">Notre équipe</h2>
+    <div class="row">
+        <div class="column">
+            <div class="card">
+                <img src="/homme.jpg" alt="Jane" style="width:100%">
+                <div class="container">
+                    <h2>SOUMAILA Ibrahim</h2>
+                    <p class="title">Membre developpeur</p>
+                    <p>Après ses études superieurs en Algérie et en France, il s'est specialisé dans le developpement des aplications.</p>
+                    <p>jane@example.com</p>
+                    <p><button class="button">Contact</button></p>
+                </div>
+            </div>
+        </div>
+
+        <div class="column">
+            <div class="card">
+                <img src="/femme.jpg" alt="Mike" style="width:100%">
+                <div class="container">
+                    <h2>Hadidja Ali</h2>
+                    <p class="title">Membre et responsable de la clientelle à Niamey</p>
+                    <p>Some text that describes me lorem ipsum ipsum lorem.</p>
+                    <p>mike@example.com</p>
+                    <p><button class="button">Contact</button></p>
+                </div>
+            </div>
+        </div>
+
+        <div class="column">
+            <div class="card">
+                <img src="/homme.jpg" alt="John" style="width:100%">
+                <div class="container">
+                    <h2>Boukari Yacouba</h2>
+                    <p class="title">Membre et responsable de la clientelle à Niamey</p>
+                    <p>Membre et responsable de la clientelle à Tawa.</p>
+                    <p>john@example.com</p>
+                    <p><button class="button">Contact</button></p>
+                </div>
+            </div>
         </div>
     </div>
-    <script type="text/javascript" src="main.js"></script>
+
 </body>
 
 </html>

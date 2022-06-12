@@ -1,26 +1,19 @@
 //libs
 const express = require("express");
-//const low = require("lowdb");
-//const FileSync = require("lowdb/adapters/FileSync");
-//const { join } = require("path");
-//const docs = require('./docs');
 const dataBase = require('./models/configs/db');
 const testRoute = require('./controllers/routes/tests_routes');
+const magazinRoute = require('./controllers/routes/magazinsRoutes');
 const bodyParser = require("body-parser");
-//const swaggerUi = require("swagger-ui-express");
 const swaggerJSDoc = require("swagger-jsdoc");
 const swaggerUI = require("swagger-ui-express");
-const expressJSDocSwagger = require("express-jsdoc-swagger");
-//const swaggerDocument = require("./swagger.json");
-
-
+const path = require('path');
 
 //instanciations des libs
 const app = express();
 //Middleware
 app.use(bodyParser.json());
 
-
+//definitions des options de swagger
 const swaggerOptions = {
     swaggerDefinition: {
         info: {
@@ -41,22 +34,38 @@ const swaggerOptions = {
         host: "localhost:777/", // Host (optional)
         basePath: "k-api/v1", // Base path (optional)
     },
-    apis: ["./controllers/routes/tests_routes.js"],
+    apis: ["./controllers/routes/tests_routes.js", "./controllers/routes/magazinsRoutes.js"],
 
 };
 
-// use the express-static middleware
+// injection des Midlwares dans l'application
 app.use(express.static("public"));
+/* Manage CORS Access for ALL requests/responses */
+app.use(function(req, res, next) {
+    /* Allow access from any requesting client */
+    res.setHeader('Access-Control-Allow-Origin', '*');
+
+    /* Allow access for any of the following Http request types */
+    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, DELETE, PUT');
+
+    /* Set the Http request header */
+    res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type,Authorization');
+    next();
+});
 app.use('/k-api/v1', testRoute);
+app.use('/k-api/v1', magazinRoute);
 app.set("view engine", "ejs");
-//swagger
-//expressJSDocSwagger(app)(swaggerOptions);
+
+//swagger configuration
 const swaggerDocs = swaggerJSDoc(swaggerOptions);
-//const swaggerDocsServer = swaggerJSDoc(swaggerServer);
 app.use("/api-docs", swaggerUI.serve, swaggerUI.setup(swaggerDocs));
 
+//appel à la page d'aceuil de l'API
+app.get('/home', function(req, res) {
+    res.sendFile(path.join(__dirname + '/home.html'));
+})
 
-//routes
+//configuration des ports de l'application
 const server = app.listen(process.env.PORT || 777, () => {
     const port = server.address().port;
     console.log("[kasuwa-app-api]---- server started : ok ----------");
