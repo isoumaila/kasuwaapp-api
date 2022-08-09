@@ -4,7 +4,7 @@ var FormData = require('form-data');
 const axios = require('axios').default;
 const boutiques = (req, res) => {
 
-    var host = "http://localhost:777/k-api/v1/";
+    var host = "https://kasuwaapp-api-v0.herokuapp.com/k-api/v1/";
 
 
     axios
@@ -23,7 +23,7 @@ const oneBoutique = (req, res) => {
 
     var id = req.query.id
 
-    var host = "http://localhost:777/k-api/v1/";
+    var host = "https://kasuwaapp-api-v0.herokuapp.com/k-api/v1/";
 
 
     axios
@@ -41,7 +41,7 @@ const oneBoutiqueModGet = (req, res) => {
 
     var id = req.query.id
 
-    var host = "http://localhost:777/k-api/v1/";
+    var host = "https://kasuwaapp-api-v0.herokuapp.com/k-api/v1/";
 
 
     axios
@@ -56,7 +56,7 @@ const oneBoutiqueModGet = (req, res) => {
 };
 
 const oneBoutiqueModPost = (req, res) => {
-    var host = "http://localhost:777/k-api/v1/shop";
+    var host = "https://kasuwaapp-api-v0.herokuapp.com/k-api/v1/shop";
     var id = req.query.id
 
 
@@ -75,7 +75,7 @@ const oneBoutiqueModPost = (req, res) => {
 };
 
 const boutiquesAdd = (req, res) => {
-    var host = "http://localhost:777/k-api/v1/shop";
+    var host = "https://kasuwaapp-api-v0.herokuapp.com/k-api/v1/shop";
     var id = req.query.id
     console.log("ajout debut");
     console.log(req.body);
