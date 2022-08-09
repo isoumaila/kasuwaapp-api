@@ -8,7 +8,9 @@ const { MessageModel } = require('../../models/messages/message');
 /** 
  * @swagger 
  * /status: 
- *   get: 
+ *   get:
+ *     tags:
+ *       - messages 
  *     description: Get the status of the api 
  *     responses:  
  *       200: 
@@ -23,7 +25,9 @@ router.get("/status", (req, res) => {
 /** 
  * @swagger 
  * /messages: 
- *   get: 
+ *   get:
+ *     tags:
+ *       - messages 
  *     description: Get the messages 
  *     responses:  
  *       200: 
@@ -47,6 +51,8 @@ router.get('/messages', (req, res) => {
  * @swagger
  * /messages:
  *     post:
+ *      tags:
+ *          - messages
  *      parameters:
  *            - in: body
  *              name: message object   # Note the name is the same as in the path
@@ -80,6 +86,8 @@ router.post('/messages', (req, res) => {
  * @swagger
  * /{id}:
  *   put:
+ *      tags:
+ *        - messages
  *      parameters:
  *            - in: path
  *              name: id   # Note the name is the same as in the path
@@ -127,6 +135,8 @@ router.put("/:id", (req, res) => {
  * @swagger
  * /{id}:
  *   delete:
+ *      tags:
+ *        - messages
  *      parameters:
  *            - in: path
  *              name: id   # Note the name is the same as in the path
@@ -158,7 +168,9 @@ router.delete("/:id", (req, res) => {
 /** 
  * @swagger 
  * /test: 
- *   get: 
+ *   get:
+ *     tags:
+ *       - messages 
  *     description: Test des endpoint
  *     responses:  
  *       200: 

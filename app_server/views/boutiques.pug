@@ -1,0 +1,24 @@
+extends layout
+
+block content
+  nav.nav.nav-pills.nav-fill.ks-nav
+   a.nav-link.ks-active(aria-current="page" href="/") Accueil
+   a.nav-link(href='/about/') L'équipe
+   a.nav-link.active(href="/boutiques/") Liste des boutiques
+   a.nav-link.disabled Commentaires
+  .about-section
+   .ksBoutiquesList0 
+    .row.row-2.ksBtHead
+     h1(class="ksBtHead0") LISTE DES BOUTIQUES
+     a.ks-oneboutique(href='/boutiques/one/add?role=adm') 
+      span(class="ksBtHead1") AJOUTER UNE NOUVELLE
+    .row.row-cols-1.row-cols-md-3.g-4 
+     each item in boutiqueList
+      .col-6
+       .card.h-100
+         img.card-img-top.ks-img0(src="/images/shop.jpg", alt="Nom boutiques")
+         a.ks-oneboutique(href='/boutiques/one?id='+item._id)
+          span.ks-btn-detail 
+         .card-body.ks-b0
+          h5.card-title=item.shopName
+          p=item.shopMarketPlaceName   

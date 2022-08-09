@@ -23,12 +23,11 @@ const { ShopModel } = require('../../models/magazins/shop');
  * */
 routerShop.get('/shop/:id', (req, res) => {
     res.setHeader("Content-Type", "application/json");
-    console.log("iddddd: " + req.params.id);
+
     if (!ObjectID.isValid(req.params.id))
         return res.status(400).send("Identifiant inconnu : " + req.params.id);
 
     ShopModel.findOne({ _id: req.params.id }, (err, result) => {
-        console.log(result);
         if (!err)
             res.send(JSON.stringify(result));
         else
@@ -51,7 +50,7 @@ routerShop.get('/shop/:id', (req, res) => {
 routerShop.get('/shops', (req, res) => {
     res.setHeader("Content-Type", "application/json");
     ShopModel.find((err, result) => {
-        console.log(result);
+        //console.log(result);
         if (!err)
             res.send(JSON.stringify(result));
         else
@@ -123,7 +122,7 @@ routerShop.post('/shop', (req, res) => {
  *                type: object
  * */
 routerShop.put("/shop/:id", (req, res) => {
-    console.log(req.params.id);
+
     if (!ObjectID.isValid(req.params.id))
         return res.status(400).send("Identifiant inconnu : " + req.params.id)
 
@@ -141,9 +140,9 @@ routerShop.put("/shop/:id", (req, res) => {
     };
 
     ShopModel.findOneAndUpdate(req.params.id, { $set: updateShopModel }, { new: true },
-        (err, message) => {
+        (err, result) => {
             if (!err)
-                res.send(message);
+                res.send(JSON.stringify(result));
             else
                 res.send("erreur lors de la mis à jour du ShopModel : " + err);
         }

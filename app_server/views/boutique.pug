@@ -1,0 +1,24 @@
+extends layout
+
+block content
+ nav.nav.nav-pills.nav-fill.ks-nav
+  a.nav-link.active.ks-active(aria-current="page" href="") Détail de la boutique
+  a.nav-link(href="/boutiques/") Retour à la liste des boutiques
+ 
+ .about-section
+  h1  #{title}
+  h2 #{oneBoutique.shopName}
+  .ks-boutique-body
+   .ksB1
+    p #{oneBoutique.shopArticleType}
+    p #{oneBoutique.shopPhoneNumber}
+    p #{oneBoutique.shopHours}
+    p #{oneBoutique.shopMarketPlaceName}
+    p #{oneBoutique.shopContry}
+    p #{oneBoutique.shopCity}
+    p #{oneBoutique.shopArticleType1}
+    p #{oneBoutique.shopingredients}
+   .ksB2 
+    a.ks-oneboutique(href='/boutiques/one/mod?id='+oneBoutique._id)
+     span.spanMod Modifier
+

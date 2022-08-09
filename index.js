@@ -1,4 +1,3 @@
-//libs
 const express = require("express");
 const dataBase = require('./models/configs/db');
 const testRoute = require('./controllers/routes/tests_routes');
@@ -7,6 +6,19 @@ const bodyParser = require("body-parser");
 const swaggerJSDoc = require("swagger-jsdoc");
 const swaggerUI = require("swagger-ui-express");
 const path = require('path');
+
+var jsdom = require("jsdom");
+const { JSDOM } = jsdom;
+const { window } = new JSDOM();
+const { document } = (new JSDOM('')).window;
+global.document = document;
+
+var $ = jQuery = require('jquery')(window);
+
+//routers
+var aboutRouter = require('./app_server/routes/aboutRouter');
+var indexRouter = require("./app_server/routes/indexRouter");
+var boutiquesRouter = require("./app_server/routes/boutiquesRouter")
 
 //instanciations des libs
 const app = express();
@@ -31,6 +43,15 @@ const swaggerOptions = {
             },
             termsOfService: "http://example.com",
         },
+        tags: [{
+                name: 'shops',
+                description: 'Shop API'
+            },
+            {
+                name: 'messages',
+                description: 'Messages API'
+            }
+        ],
         host: "localhost:777/", // Host (optional)
         basePath: "k-api/v1", // Base path (optional)
     },
@@ -40,6 +61,8 @@ const swaggerOptions = {
 
 // injection des Midlwares dans l'application
 app.use(express.static("public"));
+app.use(express.static(__dirname + 'public')); //Serves resources from public folder
+app.use('/boutiques/images/', express.static(__dirname + '/images'));
 /* Manage CORS Access for ALL requests/responses */
 app.use(function(req, res, next) {
     /* Allow access from any requesting client */
@@ -54,16 +77,29 @@ app.use(function(req, res, next) {
 });
 app.use('/k-api/v1', testRoute);
 app.use('/k-api/v1', magazinRoute);
-app.set("view engine", "ejs");
+
+app.set('view engine', 'pug');
+app.set('views', path.join(__dirname, 'app_server', 'views'));
 
 //swagger configuration
 const swaggerDocs = swaggerJSDoc(swaggerOptions);
 app.use("/api-docs", swaggerUI.serve, swaggerUI.setup(swaggerDocs));
 
-//appel à la page d'aceuil de l'API
-app.get('/home', function(req, res) {
-    res.sendFile(path.join(__dirname + '/home.html'));
-})
+
+
+app.use('/', indexRouter);
+app.use('/', aboutRouter);
+app.use('/', boutiquesRouter);
+
+var emitter = require('events').EventEmitter;
+
+var em = new emitter();
+em.addListener('nav .nav-link', function() {
+    console.log('First subscriber: ');
+});
+em.on('nav .nav-link', function() {
+    console.log('First subscriber: ');
+});
 
 //configuration des ports de l'application
 const server = app.listen(process.env.PORT || 777, () => {

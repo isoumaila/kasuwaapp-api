@@ -18,6 +18,10 @@ button {
     font-family: 'Barlow';
 }
 
+.ks-boutique-body {
+    background: #d5ab40;
+}
+
 #laugh {
     background-color: #fedc65;
 }

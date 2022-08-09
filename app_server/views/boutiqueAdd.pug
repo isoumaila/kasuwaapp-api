@@ -1,0 +1,43 @@
+extends layout
+
+block content
+ nav.nav.nav-pills.nav-fill.ks-nav
+  a.nav-link.active.ks-active(aria-current="page" href="") Ajout d'une nouvelle boutique
+  a.nav-link(href="/boutiques/") Retour à la liste des boutiques
+ 
+ .about-section
+
+  h1 #{title}
+  form(action="/boutiques/one/add?role=adm" method="POST")
+   .form-group
+    label(for="shopName") Nom
+    input(type="text" class="form-control" id="shopName" aria-describedby="emailHelp" placeholder="Enterer un nom" name="shopName")
+   .form-group
+    label(for="shopPhoneNumber") Numéro
+    input(type="text" class="form-control" id="shopPhoneNumber" aria-describedby="emailHelp" placeholder="Enterer un numéro" name="shopPhoneNumber")
+   .form-group
+    label(for="shopHours") Horaire
+    input(type="text" class="form-control" id="shopHours" aria-describedby="emailHelp" placeholder="Enterer des horaires" name="shopHours")
+   .form-group
+    label(for="shopArticleType") Catégorie
+    input(type="text" class="form-control" id="shopArticleType" aria-describedby="emailHelp" placeholder="Enterer une catégorie" name="shopArticleType")
+   .form-group
+    label(for="shopContry") Pays
+    input(type="text" class="form-control" id="shopContry" aria-describedby="emailHelp" placeholder="Enterer un pays" name="shopContry")
+   .form-group
+    label(for="shopCity") Ville
+    input(type="text" class="form-control" id="shopCity" aria-describedby="emailHelp" placeholder="Enterer une ville" name="shopCity")
+   .form-group
+    label(for="shopArticleType1") Articles
+    input(type="text" class="form-control" id="shopArticleType1" aria-describedby="emailHelp" placeholder="Enterer les articles" name="shopArticleType1")
+   .form-group
+    label(for="shopingredients") Liste des produits
+    input(type="text" class="form-control" id="shopingredients" aria-describedby="emailHelp" placeholder="Enterer les produits" name="shopingredients")
+   .form-group
+    label(for="shopMarketPlaceName") Marché
+    input(type="text" class="form-control" id="shopMarketPlaceName" aria-describedby="emailHelp" placeholder="Enterer un marché" name="shopMarketPlaceName")
+   .form-group
+    label(for="shopimageUrl") Chemin vers une image
+    input(type="text" class="form-control" id="shopimageUrl" aria-describedby="emailHelp" placeholder="Enterer un pays" name="shopimageUrl")
+   button(type="submit" class="btn btn-primary") Valider l'ajout
+

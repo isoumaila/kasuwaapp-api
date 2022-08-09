@@ -1,0 +1,45 @@
+extends layout
+
+block content
+  nav.nav.nav-pills.nav-fill.ks-nav
+   a.nav-link.ks-active(aria-current="page" href="/") Accueil
+   a.nav-link.active(href='/about/') L'équipe
+   a.nav-link(href="/boutiques/") Liste des boutiques
+   a.nav-link.disabled Commentaires
+  .about-section
+   h1 APPROPOS DE KASUAWA APP API
+   p Nous avions un rêve ! aider nos commerçants à vendre plus que prevu !
+   p Ainsi, l'avenir nous dira, jusqu'ôu nous irons !
+
+  h2(style="text-align:center") Notre équipe
+  .row
+   .column
+    .card
+     img(src="/homme.jpg", alt="Jane", style="width:100%")
+     .container
+      h2 SOUMAILA Ibrahim
+      p.title Membre developpeur
+      p Après ses études superieurs en Algérie et en France, il s'est specialisé dans le developpement des applications.</p>
+      p ibrahim@ks-app.com
+      p
+       button.button Contact
+   .column
+    .card
+     img(src="/homme.jpg", alt="Yacouba", style="width:100%")
+     .container
+      h2 Boukari Yacouba
+      p.title Membre et responsable de la clientelle à Taoua
+      p Actuellement etudiant à l'université Taoua ôu il poursuit ses études en sciences
+      p yac@ks-app.com
+      p
+       button.button Contact    
+   .column
+    .card
+     img(src="/femme.jpg" alt="Hadidja", style="width:100%")
+     .container
+      h2 Hadidja Ali
+      p.title Membre et responsable de la clientelle à Niamey
+      p Actuellement etudiante à l'université Abdou Moumuni de Niamey ôu elle poursuit ses études en sciences sociales
+      p kadi@ks-app.com
+      p
+       button.button Contact    

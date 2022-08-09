@@ -1,0 +1,58 @@
+extends layout
+
+block content
+ nav.nav.nav-pills.nav-fill.ks-nav
+  a.nav-link.active.ks-active(aria-current="page" href="") Détail de la boutique
+  a.nav-link(href="/boutiques/") Retour à la liste des boutiques
+ 
+ .about-section
+  h1  #{title}
+  h2 #{oneBoutique.shopName}
+  .ks-boutique-body
+   .ksB1
+    p #{oneBoutique.shopArticleType}
+    p #{oneBoutique.shopPhoneNumber}
+    p #{oneBoutique.shopHours}
+    p #{oneBoutique.shopMarketPlaceName}
+    p #{oneBoutique.shopContry}
+    p #{oneBoutique.shopCity}
+    p #{oneBoutique.shopArticleType1}
+    p #{oneBoutique.shopingredients}
+   .ksB2 
+    span.spanMod Valider
+     a.ks-oneboutique(href='/boutiques/one/mod?id='+oneBoutique._id)
+ .container
+  h1 Modification
+  form(action="/boutiques/one/mod?id="+oneBoutique._id method="POST")
+   .form-group
+    label(for="shopName") Nom
+    input(type="text" class="form-control" id="shopName" aria-describedby="emailHelp" placeholder="Enterer un nom" name="shopName" value=oneBoutique.shopName)
+   .form-group
+    label(for="shopPhoneNumber") Numéro
+    input(type="text" class="form-control" id="shopPhoneNumber" aria-describedby="emailHelp" placeholder="Enterer un numéro" name="shopPhoneNumber" value=oneBoutique.shopPhoneNumber)
+   .form-group
+    label(for="shopHours") Horaire
+    input(type="text" class="form-control" id="shopHours" aria-describedby="emailHelp" placeholder="Enterer des horaires" name="shopHours" value=oneBoutique.shopHours)
+   .form-group
+    label(for="shopArticleType") Catégorie
+    input(type="text" class="form-control" id="shopArticleType" aria-describedby="emailHelp" placeholder="Enterer une catégorie" name="shopArticleType" value=oneBoutique.shopArticleType)
+   .form-group
+    label(for="shopContry") Pays
+    input(type="text" class="form-control" id="shopContry" aria-describedby="emailHelp" placeholder="Enterer un pays" name="shopContry" value=oneBoutique.shopContry)
+   .form-group
+    label(for="shopCity") Ville
+    input(type="text" class="form-control" id="shopCity" aria-describedby="emailHelp" placeholder="Enterer une ville" name="shopCity" value=oneBoutique.shopCity)
+   .form-group
+    label(for="shopArticleType1") Articles
+    input(type="text" class="form-control" id="shopArticleType1" aria-describedby="emailHelp" placeholder="Enterer les articles" name="shopArticleType1" value=oneBoutique.shopArticleType1)
+   .form-group
+    label(for="shopingredients") Liste des produits
+    input(type="text" class="form-control" id="shopingredients" aria-describedby="emailHelp" placeholder="Enterer les produits" name="shopingredients" value=oneBoutique.shopingredients)
+   .form-group
+    label(for="shopMarketPlaceName") Marché
+    input(type="text" class="form-control" id="shopMarketPlaceName" aria-describedby="emailHelp" placeholder="Enterer un marché" name="shopMarketPlaceName" value=oneBoutique.shopMarketPlaceName)
+   .form-group
+    label(for="shopimageUrl") Chemin vers une image
+    input(type="text" class="form-control" id="shopimageUrl" aria-describedby="emailHelp" placeholder="Enterer un pays" name="shopimageUrl" value=oneBoutique.shopimageUrl)
+   button(type="submit" class="btn btn-primary") Submit
+
