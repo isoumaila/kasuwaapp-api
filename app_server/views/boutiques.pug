@@ -12,13 +12,17 @@ block content
      h1(class="ksBtHead0") LISTE DES BOUTIQUES
      a.ks-oneboutique(href='/boutiques/one/add?role=adm') 
       span(class="ksBtHead1") AJOUTER UNE NOUVELLE
-    .row.row-cols-1.row-cols-md-3.g-4 
+    .row.row-cols-1.row-cols-md-3.g-4(id="mobileKs") 
      each item in boutiqueList
-      .col-6
+      .col-6(class="mobileKs0")
        .card.h-100
+         .row.col-6.card0 
+          a.ks-oneboutique(href='/boutiques/one?id='+item._id) 
+           span.ks-btn-detail Détail
+          a.ks-oneboutique(href='/boutiques/one/delete?id='+item._id) 
+           span.ks-btn-supprimer Supprimer
          img.card-img-top.ks-img0(src="/images/shop.jpg", alt="Nom boutiques")
-         a.ks-oneboutique(href='/boutiques/one?id='+item._id)
-          span.ks-btn-detail 
+         
          .card-body.ks-b0
           h5.card-title=item.shopName
           p=item.shopMarketPlaceName   

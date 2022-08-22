@@ -119,6 +119,7 @@ footer {
 }
 
 .spanMod {
+    color: #f8f9fa;
     width: 100px;
     height: 32px;
     background: blue;
@@ -138,9 +139,23 @@ footer {
 }
 
 .ks-btn-detail {
-    position: absolute;
-    top: -1px;
+    /* position: absolute;
+    top: -1px;*/
     background: #0de71ac4;
+    height: 26px;
+    width: 113px;
+    border-radius: 14px;
+    display: block;
+}
+
+.ks-btn-supprimer {
+    display: block;
+    color: aquamarine;
+    font-weight: bold;
+    left: 5px;
+    /*position: absolute;
+    top: -1px;*/
+    background: #e70d0dc4;
     height: 26px;
     width: 113px;
     border-radius: 14px;
@@ -150,5 +165,32 @@ footer {
     .column {
         width: 100%;
         display: block;
+    }
+}
+
+@media screen and (max-width: 700px) {
+    #mobileKs {
+        display: block;
+    }
+    .mobileKs0 {
+        display: contents;
+    }
+    .ksBtHead {
+        height: 207px;
+    }
+    .ks-boutique-body {
+        display: block;
+    }
+    .ksB1 {
+        width: max-content;
+    }
+    .ksB2 {
+        width: max-content;
+    }
+    .about-section {
+        padding: 15px;
+    }
+    .spanMod {
+        color: #f8f9fa;
     }
 }

@@ -1,14 +1,21 @@
 var FormData = require('form-data');
+var hostProd = "https://kasuwaapp-api-v0.herokuapp.com/k-api/v1/";
+var hostDev = "http://localhost:777/k-api/v1/";
+const axios = require('axios').default
+
+
+function getHost(host) {
+    if (host === "localhost:777")
+        return hostDev;
+    return hostProd;
+}
+
 
 /* GET 'home' page */
-const axios = require('axios').default;
+;
 const boutiques = (req, res) => {
-
-    var host = "https://kasuwaapp-api-v0.herokuapp.com/k-api/v1/";
-
-
     axios
-        .get(host + 'shops')
+        .get(getHost(req.headers.host) + 'shops')
         .then(b => {
             //console.log(`statusCode: ${b.status}`);
             console.log(b.status);
@@ -19,15 +26,29 @@ const boutiques = (req, res) => {
         });
 };
 
+const oneBoutiqueDelete = (req, res) => {
+
+    var id = req.query.id
+
+    axios
+        .delete(getHost(req.headers.host) + 'shop/' + id)
+        .then(b => {
+
+            res.statusCode = 302;
+            res.setHeader('Location', '/boutiques');
+            return res.end();
+        })
+        .catch(error => {
+            console.error(error);
+        });
+};
+
 const oneBoutique = (req, res) => {
 
     var id = req.query.id
 
-    var host = "https://kasuwaapp-api-v0.herokuapp.com/k-api/v1/";
-
-
     axios
-        .get(host + 'shop/' + id)
+        .get(getHost(req.headers.host) + 'shop/' + id)
         .then(b => {
             console.log(b.status);
             res.render('boutique', { title: 'Boutique de :', 'oneBoutique': b.data });
@@ -41,11 +62,8 @@ const oneBoutiqueModGet = (req, res) => {
 
     var id = req.query.id
 
-    var host = "https://kasuwaapp-api-v0.herokuapp.com/k-api/v1/";
-
-
     axios
-        .get(host + 'shop/' + id)
+        .get(getHost(req.headers.host) + 'shop/' + id)
         .then(b => {
             console.log(b.status);
             res.render('boutiqueMod', { title: 'Boutique de :', 'oneBoutique': b.data });
@@ -56,13 +74,12 @@ const oneBoutiqueModGet = (req, res) => {
 };
 
 const oneBoutiqueModPost = (req, res) => {
-    var host = "https://kasuwaapp-api-v0.herokuapp.com/k-api/v1/shop";
     var id = req.query.id
 
 
     axios({
             method: "put",
-            url: host + "/" + id,
+            url: getHost(req.headers.host) + "shop/" + id,
             data: req.body
         })
         .then(b => {
@@ -75,15 +92,10 @@ const oneBoutiqueModPost = (req, res) => {
 };
 
 const boutiquesAdd = (req, res) => {
-    var host = "https://kasuwaapp-api-v0.herokuapp.com/k-api/v1/shop";
     var id = req.query.id
-    console.log("ajout debut");
-    console.log(req.body);
-    console.log("ajout fin");
-
     axios({
             method: "post",
-            url: host,
+            url: getHost(req.headers.host) + "shop",
             data: req.body
         })
         .then(b => {
@@ -107,5 +119,6 @@ module.exports = {
     oneBoutiqueModGet,
     oneBoutiqueModPost,
     boutiquesAdd,
-    boutiquesAddGet
+    boutiquesAddGet,
+    oneBoutiqueDelete
 };
