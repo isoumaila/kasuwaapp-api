@@ -30,3 +30,6 @@ api de kasuwaapp
 
 ----https://www.tutorialsteacher.com/nodejs/jade-template-engine
 
+## JWT config pour le Token
+- https://www.section.io/engineering-education/how-to-build-authentication-api-with-jwt-token-in-nodejs/
+

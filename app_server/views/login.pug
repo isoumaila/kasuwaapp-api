@@ -1,0 +1,24 @@
+extends layout
+
+block content
+  nav.nav.nav-pills.nav-fill.ks-nav
+   a.nav-link.ks-active(aria-current="page" href="/") Login
+  .about-section
+   
+   .login-form
+    form(action="/auth/login" method="post")
+     .avatar
+      img(src="/images/avatar.png" alt="Avatar")
+     h2(class="text-center") KASSOUA APP ADM  
+     .form-group
+      input(type="email" name="mail" class="form-control" id="mail" aria-describedby="emailHelp" placeholder="Enter email" value="")
+     .form-group
+      input(style="margin-top: 6px;" type="password" name="mdp" class="form-control" id="mdp" aria-describedby="emailHelp" placeholder="*********" value="")
+     .form-group
+      button(type="submit" class="btn btn-primary btn-lg btn-block") Connexion
+     .bottom-action.clearfix
+      label(class="float-left form-check-label") Se souvenir de moi
+       input(type="checkbox") 
+      a(href="#" class="float-right") Mot de passe oublé?
+    p(class="text-center small") Vous ne possedez pas encore de compte? 
+     a(href="register") S'inscrire ici!

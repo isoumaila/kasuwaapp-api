@@ -1,0 +1,24 @@
+extends layout
+
+block content
+  nav.nav.nav-pills.nav-fill.ks-nav
+   a.nav-link.ks-active(aria-current="page" href="/") Inscription
+  .about-section
+   h2 #{title}
+   .login-form
+    form(action="register" method="post" name="form1")
+     .form-group
+      label(for="nom") Nom
+      input(type="name" name="nom" class="form-control" id="nom" aria-describedby="nameHelp" placeholder="nom" value="")
+     .form-group
+      label(for="prenom") Prenom
+      input(type="name" name="prenom" class="form-control" id="prenom" aria-describedby="nameHelp" placeholder="prenom" value="")
+     .form-group
+      label(for="mail") Email
+      input(type="email" name="mail" class="form-control" id="mail" aria-describedby="emailHelp" placeholder="mail" value="")
+     .form-group
+      label(for="mdp") Mot de passe
+      input(type="password" name="mdp" class="form-control" id="mdp" aria-describedby="emailHelp" placeholder="*********" value="")
+
+      input(type="submit" class="btn btn-primary" value="Valider")
+     a(href="loginget" class="btn btn-success ml-2") Connecter
